@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "composite": true,
+      "skipLibCheck": true,
+      "jsx": "react-jsx",
+      "module": "ESNext",
+      "moduleResolution": "bundler",
+      "allowSyntheticDefaultImports": true
+    },
+    "include": ["vite.config.ts", "prettier.config.ts","tailwind.config.js"]
+  }
+  
