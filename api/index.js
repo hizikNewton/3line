@@ -1,20 +1,12 @@
-import cors from "cors";
-import express, { Request, Response } from "express";
+const cors = require("cors");
+const express = require("express");
+const path = require("path");
 
 const app = express();
 app.use(cors());
 const PORT = 3000;
 
-interface User {
-  id: number;
-  users: number;
-  role: string;
-  type: "DEFAULT" | "CUSTOM" | "SYSTEM-CUSTOM";
-  date: string; // YYYY-MM-DD
-  status: "Active" | "Inactive";
-}
-
-const users: User[] = [
+const users = [
   {
     id: 1,
     users: 7,
@@ -73,12 +65,18 @@ const users: User[] = [
   },
 ];
 
-app.get("/users", (req: Request, res: Response) => {
+app.use(express.static(path.join(__dirname, "../dist")));
+
+app.get("(.*)", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
+});
+
+app.get("/users", (_, res) => {
   res.json(users);
 });
 
 // GET /users/:id/role
-app.get("/users/:id/role", (req: Request, res: Response) => {
+app.get("/users/:id/role", (req , res) => {
   const userId = parseInt(req.params.id, 10);
   const user = users.find((u) => u.id === userId);
 
