@@ -32,14 +32,9 @@ const Settings: FC = () => {
     "Api",
   ];
   const [active, setActive] = useState("Superadmin");
-  const [card, setCard] = useState("visa");
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setActive(value);
-  };
-  const handleCard = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setCard(value);
   };
 
   const [users, setUsers] = useState<User[]>([]);
