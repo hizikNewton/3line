@@ -68,26 +68,12 @@ const users = [
 
 app.use(express.static(path.join(__dirname, "../dist")));
 
-app.get("(.*)", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "index.html"));
-});
-
 app.get("/users", (req, res) => {
   res.json(users);
 });
 
-// GET /users/:id/role
-app.get("/users/:id/role", (req , res) => {
-  const userId = parseInt(req.params.id, 10);
-  const user = users.find((u) => u.id === userId);
-
-  if (!user) {
-    return res.status(404).json({ error: "User not found" });
-  }
-
-  res.json({ id: user.id, role: user.role });
+app.get("(.*)", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+
