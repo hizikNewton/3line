@@ -6,22 +6,6 @@ const app = express();
 app.use(cors());
 const PORT = 3000;
 
-const ALLOWED_ORIGIN =
-  process.env.NODE_ENV === 'production'
-    ? 'https://3line-c5pp.vercel.app'
-    : '*';
-
-export async function OPTIONS() {
-  return new Response(null, {
-    status: 200,
-    headers: {
-      'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      'Access-Control-Allow-Credentials': 'true',
-    },
-  });
-}
 
 const users = [
   {
@@ -88,8 +72,8 @@ app.get("(.*)", (req, res) => {
   res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
-app.get("/users", (_, res) => {
-  res.json(users,{headers: { 'Access-Control-Allow-Origin': ALLOWED_ORIGIN },});
+app.get("/users", (req, res) => {
+  res.json(users);
 });
 
 // GET /users/:id/role
