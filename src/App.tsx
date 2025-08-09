@@ -9,7 +9,7 @@ function App() {
       <Route path="" element={<Dashboard />}>
         <Route path={"settings"} element={<Settings />} />
         <Route path="*" element={<div>Coming soon</div>} />
-        <Route path={""} element={<Navigate to="settings" replace />} />
+        <Route path={""} element={<Navigate to="settings" />} />
       </Route>
     </Routes>
   );

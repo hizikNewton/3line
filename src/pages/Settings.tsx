@@ -3,6 +3,7 @@ import { User } from "@components/Table";
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { Button, Divider, Icon, Table } from "src/components";
+import { default_users } from "./data";
 
 const roles = [
   {
@@ -37,7 +38,7 @@ const Settings: FC = () => {
     setActive(value);
   };
 
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<User[]>(default_users);
 
   useEffect(() => {
     fetch("https://3line-v8g7.vercel.app/users")
