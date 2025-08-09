@@ -9,7 +9,7 @@ import { routes } from "src/routes";
 
 const SideBar: FC = () => {
   const { main, others } = routes;
-  const { open } = useContext(NavContext);
+  const { open, toggle } = useContext(NavContext);
   return (
     <div
       className={`sidebar  flex flex-col flex-shrink-0 h-screen px-4 py-0 md:py-6 w-full md:w-72 gap-y-6  md:fixed ${
@@ -32,6 +32,9 @@ const SideBar: FC = () => {
       <div className="sidebar-main-nav mt-0 md:mt-4">
         {main.map(({ name, icon, path, badge }) => (
           <NavLink
+            onClick={() => {
+              if (open) toggle(!open);
+            }}
             key={path}
             className={`flex px-3 justify-between py-2 hover:bg-gray-50 ${({
               isActive,
@@ -50,9 +53,13 @@ const SideBar: FC = () => {
       <div className="sidebar-other-nav">
         {others.map(({ name, icon, path }) => (
           <NavLink
+            onClick={() => {
+              if (open) toggle(!open);
+            }}
             className={`flex px-3 justify-between py-2 hover:bg-gray-50 ${({
               isActive,
             }) => (isActive ? "active" : "")}
+            
        `}
             to={path}
           >
