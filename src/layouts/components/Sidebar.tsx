@@ -12,7 +12,7 @@ const SideBar: FC = () => {
   const { open } = useContext(NavContext);
   return (
     <div
-      className={`sidebar flex flex-col flex-shrink-0 h-screen px-4 py-0 md:py-6 w-full md:w-72 gap-y-6  md:fixed ${
+      className={`sidebar  flex flex-col flex-shrink-0 h-screen px-4 py-0 md:py-6 w-full md:w-72 gap-y-6  md:fixed ${
         open ? "block md:block" : "hidden md:block"
       }`}
     >
@@ -23,12 +23,13 @@ const SideBar: FC = () => {
         <label className="relative ">
           <Icon name="Search" className="absolute top-0 left-2 " />
           <input
-            className="rounded border w-full pr-3.5 pl-8 py-2.5"
+            autoFocus
+            className="rounded border-1 w-full pr-3.5 pl-8 py-2.5 border-purple-300 shadow-[0_0_0_4px_#F4EBFF,0_1px_2px_0_rgba(16,24,40,0.05)]"
             placeholder="Search"
           ></input>
         </label>
       </div>
-      <div className="sidebar-main-nav ">
+      <div className="sidebar-main-nav mt-0 md:mt-4">
         {main.map(({ name, icon, path, badge }) => (
           <NavLink
             key={path}

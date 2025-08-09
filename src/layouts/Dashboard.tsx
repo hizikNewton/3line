@@ -10,7 +10,7 @@ const Dashboard = () => {
   return (
     <NavContext.Provider value={{ open, toggle }}>
       <MobileHeader />
-      <div className="flex relative">
+      <div className="flex relative overflow-hidden">
         <SideBar />
         <main className="w-full ml-0 md:ml-72 ">
           <div className="flex flex-col p-4 md:p-10 gap-y-8 bg-gray-50 main-container">

@@ -5,6 +5,9 @@ export default {
       screens: {
         'xxl': '1440px',
       },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"]
+      },
     },
   },
   plugins: [],
