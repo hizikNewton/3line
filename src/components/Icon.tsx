@@ -7,11 +7,7 @@ interface Props extends SVGProps<SVGSVGElement> {
 }
 const Icon = ({ name, ...props }: Props) => {
   const IconComponent = iconset[name];
-  return (
-    <div>
-      <IconComponent {...props} />
-    </div>
-  );
+  return <IconComponent {...props} />;
 };
 
 export default Icon;

@@ -12,11 +12,11 @@ const SideBar: FC = () => {
   const { open } = useContext(NavContext);
   return (
     <div
-      className={`sidebar flex flex-col flex-shrink-0 h-screen px-4 py-6 border w-72 gap-y-6 overflow-hidden  md:fixed ${
-        open ? "open" : ""
+      className={`sidebar flex flex-col flex-shrink-0 h-screen px-4 py-0 md:py-6 w-full md:w-72 gap-y-6  md:fixed ${
+        open ? "block md:block" : "hidden md:block"
       }`}
     >
-      <div className="px-4 sidebar-logo ">
+      <div className={`px-4 sidebar-logo hidden md:block `}>
         <div className="mb-4 ">
           <img src={Logo} />
         </div>
@@ -28,7 +28,7 @@ const SideBar: FC = () => {
           ></input>
         </label>
       </div>
-      <div className="sidebar-main-nav">
+      <div className="sidebar-main-nav ">
         {main.map(({ name, icon, path, badge }) => (
           <NavLink
             key={path}
@@ -42,7 +42,7 @@ const SideBar: FC = () => {
               <Icon name={icon} />
               <span className="ml-3">{name}</span>
             </div>
-            {badge && <Badge />}
+            {badge && <Badge value="10" />}
           </NavLink>
         ))}
       </div>

@@ -4,17 +4,18 @@ interface ButtonProp {
   leftIcon?: iconKey;
   label: string;
   className?: string;
+  onClick?: () => void;
 }
 
 const Button: FC<ButtonProp> = ({ leftIcon, label, className }) => {
   return (
     <button
       type="button"
-      className={`text-sm font-medium leading-tight ${className}`}
+      className={`flex text-sm font-medium content-center ${className} hover:cursor-pointer`}
     >
-      <span>
-        {leftIcon && <Icon name={leftIcon} className="inline-flex" />}
-      </span>
+      {leftIcon && (
+        <Icon name={leftIcon} className="inline-flex mr-2 self-center" />
+      )}
       <span>{label}</span>
     </button>
   );

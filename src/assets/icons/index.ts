@@ -1,6 +1,8 @@
+import ArrowDown from "./ArrowDown";
 import Bar from "./Bar";
 import ChecboxNotCheck from "./ChecboxNotCheck";
 import Check from "./Check";
+import CheckMark from "./CheckMark";
 import Checkboxbase from "./Checkboxbase";
 import Download from "./Download";
 import Flag from "./Flag";
@@ -16,9 +18,11 @@ import Settings from "./Settings";
 import User from "./User";
 
 export {
+  ArrowDown,
   Bar,
   ChecboxNotCheck,
   Check,
+  CheckMark,
   Checkboxbase,
   Download,
   Flag,
