@@ -40,7 +40,7 @@ const Settings: FC = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    fetch("https://3line-test.vercel.app/users")
+    fetch("https://3line-v8g7.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((err) => console.error("Error fetching users:", err));
